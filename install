@@ -1,0 +1,11 @@
+
+_src="$PWD/nvim"
+_dst="$HOME/.config/"
+
+echo "copy $_src to $_dst ?"
+select yn in "copy" "cancel"; do
+    case $yn in
+        copy ) cp -r $_src $_dst; break;;
+        cancel ) exit;;
+    esac
+done
