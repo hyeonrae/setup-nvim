@@ -1,11 +1,21 @@
 
+sudo apt-get install neovim
+
 _src="$PWD/nvim"
 _dst="$HOME/.config/"
 
-echo "copy $_src to $_dst ?"
+echo "setup rc?"
+echo "  - copy $_src to $_dst"
 select yn in "copy" "cancel"; do
     case $yn in
-        copy ) cp -r $_src $_dst; break;;
+        copy )
+            cp -r $_src $_dst;
+            sudo curl -sL install-node.now.sh/lts | sudo bash
+            break;;
+
+            # CocInstall coc-ultisnips coc-sh coc-python coc-cmake
+            # pip3 install pynvim
+
         cancel ) exit;;
     esac
 done
